@@ -73,7 +73,7 @@ enum {
 #define MUB_BASE              (MU_PADDR)
 #define SYSTEM_CLOCK          (800000000UL)
 
-#define UART_BASE             (0x30a60000)
+#define UART_BASE             (0x30890000)
 #define UART_CLK_ROOT         (24000000)
 
 #define LPUART_BASE           (~0U)

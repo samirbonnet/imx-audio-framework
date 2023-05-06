@@ -20,16 +20,17 @@ CFLAGS += -DXA_CAPTURER
 
 TOOL_PATH   := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))../../xtensa
 
-ifeq ($(DEBUG), 1)
+#ifeq ($(DEBUG), 1)
 	CFLAGS += -DDEBUG
-endif
+#endif
 
 ifeq ($(TIME_PROFILE), 1)
 	CFLAGS += -DTIME_PROFILE
 endif
 
+PLATF=imx8m
+
 ifeq ($(PLATF), imx8m)
-	XTENSA_CORE = hifi4_mscale_v1_0_2_prod
 	CFLAGS += -DPLATF_8M
 endif
 
@@ -126,15 +127,7 @@ C_OBJS  +=	$(SRC_DIR)/src/plugins/xa-unia-codec.o				\
 		$(SRC_DIR)/src/driver/dsp_irq_handler.o
 
 
-TARGET = hifi4_imx8qmqxp.bin
-
-ifeq ($(PLATF), imx8m)
-	TARGET = hifi4_imx8mp.bin
-endif
-
-ifeq ($(PLATF), imx8mp_lpa)
-	TARGET = hifi4_imx8mp_lpa.bin
-endif
+TARGET = hifi4.bin
 
 ifeq ($(PLATF), imx8ulp)
 	ifeq ($(TFLM), 1)
@@ -143,8 +136,6 @@ ifeq ($(PLATF), imx8ulp)
 	TARGET = hifi4_imx8ulp.bin
 	endif
 endif
-
-PLATF ?= imx8
 
 ifeq ($(TFLM), 1)
 	ifneq ($(PLATF), imx8ulp)

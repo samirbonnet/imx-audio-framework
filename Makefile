@@ -33,9 +33,9 @@ RELEASE_DIR = release
 
 CFLAGS  = -O3
 
-ifeq ($(DEBUG), 1)
+#ifeq ($(DEBUG), 1)
 	CFLAGS += -DDEBUG
-endif
+#endif
 
 ifeq ($(TIME_PROFILE), 1)
 	CFLAGS += -DTIME_PROFILE
