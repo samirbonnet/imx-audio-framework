@@ -79,6 +79,7 @@ INCLUDES   +=   -I$(INC_DIR)/include/driver
 C_OBJS  =	$(SRC_DIR)/src/board.o						\
 		$(SRC_DIR)/src/fsl_msgq.o					\
 		$(SRC_DIR)/main.o						\
+		$(SRC_DIR)/interrupt.o						\
 		$(SRC_DIR)/src/memory.o						\
 		$(SRC_DIR)/src/printf.o						\
 		$(SRC_DIR)/src/rpmsg_env_bm.o					\

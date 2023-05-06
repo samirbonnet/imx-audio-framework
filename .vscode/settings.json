@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "mydefs.h": "c"
+        "mydefs.h": "c",
+        "stdint.h": "c",
+        "compare": "c"
     }
 }
