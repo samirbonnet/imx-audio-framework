@@ -78,7 +78,7 @@ INCLUDES   +=   -I$(INC_DIR)/include/driver
 # Put common C files here
 C_OBJS  =	$(SRC_DIR)/src/board.o						\
 		$(SRC_DIR)/src/fsl_msgq.o					\
-		$(SRC_DIR)/src/main.o						\
+		$(SRC_DIR)/main.o						\
 		$(SRC_DIR)/src/memory.o						\
 		$(SRC_DIR)/src/printf.o						\
 		$(SRC_DIR)/src/rpmsg_env_bm.o					\
@@ -154,6 +154,7 @@ all: $(C_OBJS)
 
 
 clean:
+	rm -f $(SRC_DIR)/*.o
 	rm -f $(SRC_DIR)/src/*.o
 	rm -f $(SRC_DIR)/src/driver/*.o
 	rm -f $(SRC_DIR)/src/libloader/*.o
@@ -169,4 +170,5 @@ clean:
 	rm -f $(ROOT_DIR)/testxa_af_hostless/test/plugins/cadence/tflm_common/*.o
 	rm -f $(ROOT_DIR)/testxa_af_hostless/test/plugins/cadence/tflm_microspeech/*.o
 	rm -f ./dsp_framework
+	rm -f $(SRC_DIR)/*.bin
 

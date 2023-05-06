@@ -62,4 +62,5 @@ clean:
 	rm -rf ./$(RELEASE_DIR)/hifi4_imx8mp.bin
 	rm -rf ./$(RELEASE_DIR)/hifi4_imx8qmqxp.bin
 	rm -rf ./$(RELEASE_DIR)/hifi4_imx8ulp.bin
+	rm -rf ./$(RELEASE_DIR)/hifi4.bin
 	rm -rf ./common/src/*.o
