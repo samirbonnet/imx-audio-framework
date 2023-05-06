@@ -7,17 +7,18 @@
 #
 # **************************************************************************
 
-CC          = $(CCACHE) xt-xcc
-CPLUS       = $(CCACHE) xt-xc++
+CC          = $(CCACHE) xt-clang
+CPLUS       = $(CCACHE) xt-clang++
 OBJCOPY     = xt-objcopy
 PKG_LOADLIB = xt-pkg-loadlib
-XTENSA_CORE = hifi4_nxp_v4_3_1_prod
+#XTENSA_CORE = hifi4_nxp_v4_3_1_prod
+XTENSA_CORE = hifi4_mscale_v2_0_2_prod
 
 CFLAGS  = -O3 -DHAVE_XOS
 CFLAGS += -DXA_FSL_UNIA_CODEC -DXA_PCM_GAIN
 CFLAGS += -DXA_CAPTURER
 
-TOOL_PATH   := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))../../imx-audio-toolchain/Xtensa_Tool
+TOOL_PATH   := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))../../xtensa
 
 ifeq ($(DEBUG), 1)
 	CFLAGS += -DDEBUG
@@ -42,7 +43,7 @@ SRC_DIR     = ./
 INC_DIR     = ./
 
 LINK_DIR    = ./memmap/$(PLATF)
-SYSTEM_DIR  = $(TOOL_PATH)/builds/RI-2020.4-linux/$(XTENSA_CORE)/config
+SYSTEM_DIR  = $(TOOL_PATH)/builds/RI-2022.9-linux/$(XTENSA_CORE)/config
 
 CFLAGS      += -mlongcalls -fmessage-length=0 -DPROC_$(XTENSA_CORE)       \
 			  -DCONFIG_$(XTENSA_CORE) \

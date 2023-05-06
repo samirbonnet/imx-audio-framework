@@ -1,0 +1,4 @@
+*.o
+dsp_framework/dsp_framework
+dsp_framework/hifi4_imx8qmqxp.bin
+release/hifi4_imx8qmqxp.bin

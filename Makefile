@@ -29,8 +29,6 @@
 #***************************************************************************
 
 FRAMEWORK_DIR = dsp_framework
-WRAPPER_DIR   = dsp_wrapper
-UNIT_TEST_DIR = unit_test
 RELEASE_DIR = release
 
 CFLAGS  = -O3
@@ -43,7 +41,7 @@ ifeq ($(TIME_PROFILE), 1)
 	CFLAGS += -DTIME_PROFILE
 endif
 
-all: DSP_FRAMEWORK UNIT_TEST DSP_WRAPPER
+all: DSP_FRAMEWORK
 	echo "--- Build all dsp library ---"
 
 DSP_FRAMEWORK: $(FRAMEWORK_DIR)
@@ -51,40 +49,17 @@ DSP_FRAMEWORK: $(FRAMEWORK_DIR)
 	make -C $(FRAMEWORK_DIR)
 	cp ./$(FRAMEWORK_DIR)/*.bin $(RELEASE_DIR)
 
-DSP_WRAPPER: $(WRAPPER_DIR)
-	echo "--- Build DSP wrapper ---"
-	mkdir -p $(RELEASE_DIR)/wrapper
-ifeq ($(ANDROID_BUILD), 1)
-	make -C $(WRAPPER_DIR) BUILD=ARM12ANDROID NEW_ANDROID_NAME=1 clean all
-	make -C $(WRAPPER_DIR) BUILD=ARMV8ANDROID NEW_ANDROID_NAME=1 clean all
-else
-	make -C $(WRAPPER_DIR) BUILD=ARMV8ELINUX clean all
-endif
-
-UNIT_TEST: $(UNIT_TEST_DIR)
-	echo "--- Build unit test ---"
-	mkdir -p $(RELEASE_DIR)/exe
-ifeq ($(ANDROID_BUILD), 1)
-	echo "--- no unit test for android ---"
-else
-	make -C $(UNIT_TEST_DIR)
-	cp ./$(UNIT_TEST_DIR)/*.out $(RELEASE_DIR)/exe
-endif
-
 help:
 	@echo "targets are:"
 	@echo "\tDSP_FRAMEWORK\t- build DSP framework"
-	@echo "\tDSP_WRAPPER\t- build DSP wrapper"
-	@echo "\tUNIT_TEST\t- build DSP unit test"
 	@echo "\tall\t\t- build the above"
 
 clean:
 	make -C $(FRAMEWORK_DIR) clean
-	make -C $(UNIT_TEST_DIR) clean
-	make -C $(WRAPPER_DIR) clean
 	rm -rf ./$(RELEASE_DIR)/*.so
 	rm -rf ./$(RELEASE_DIR)/exe
 	rm -rf ./$(RELEASE_DIR)/wrapper
 	rm -rf ./$(RELEASE_DIR)/hifi4_imx8mp.bin
 	rm -rf ./$(RELEASE_DIR)/hifi4_imx8qmqxp.bin
 	rm -rf ./$(RELEASE_DIR)/hifi4_imx8ulp.bin
+	rm -rf ./common/src/*.o

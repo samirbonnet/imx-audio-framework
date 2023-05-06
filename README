@@ -13,12 +13,6 @@
   2). only build DSP framework
       make DSP_FRAMEWORK
 
-  3). only build DSP wrapper lib
-      make DSP_WRAPPER
-
-  4). only build DSP unit test
-      make UNIT_TEST
-
   5). clean the folder
       make clean
 
