@@ -84,10 +84,10 @@ C_OBJS  =	$(SRC_DIR)/src/board.o						\
 		$(SRC_DIR)/src/rpmsg_env_bm.o					\
 		$(SRC_DIR)/src/rpmsg_platform.o					\
 		$(SRC_DIR)/src/rsc_table.o					\
-		$(SRC_DIR)/src/driver/fsl_lpuart.o				\
-		$(SRC_DIR)/src/driver/fsl_mu.o					\
-		$(SRC_DIR)/src/driver/fsl_uart.o				\
-		$(SRC_DIR)/src/driver/io.o					\
+		$(SRC_DIR)/driver/fsl_lpuart.o				\
+		$(SRC_DIR)/driver/fsl_mu.o					\
+		$(SRC_DIR)/driver/fsl_uart.o				\
+		$(SRC_DIR)/driver/io.o					\
 		$(ROOT_DIR)/libxa_af_hostless/algo/hifi-dpf/src/xf-msg.o	\
 		$(ROOT_DIR)/libxa_af_hostless/algo/hifi-dpf/src/xf-msgq.o	\
 		$(ROOT_DIR)/libxa_af_hostless/algo/hifi-dpf/src/xf-core.o	\
@@ -113,18 +113,18 @@ C_OBJS  +=	$(SRC_DIR)/src/plugins/xa-unia-codec.o				\
 		$(SRC_DIR)/src/libloader/common.o				\
 		$(SRC_DIR)/src/libloader/pi_library_load.o			\
 		$(SRC_DIR)/src/libloader/pi_relocate_lib.o 			\
-		$(SRC_DIR)/src/driver/asrc.o					\
-		$(SRC_DIR)/src/driver/easrc.o 					\
-		$(SRC_DIR)/src/driver/edma.o 					\
-		$(SRC_DIR)/src/driver/esai.o 					\
-		$(SRC_DIR)/src/driver/i2c.o 					\
-		$(SRC_DIR)/src/driver/irqstr.o 					\
-		$(SRC_DIR)/src/driver/sai.o 					\
-		$(SRC_DIR)/src/driver/sdma.o 					\
-		$(SRC_DIR)/src/driver/wm8960.o 					\
-		$(SRC_DIR)/src/driver/micfil.o 					\
-		$(SRC_DIR)/src/driver/fsl_dma.o 				\
-		$(SRC_DIR)/src/driver/dsp_irq_handler.o
+		$(SRC_DIR)/driver/asrc.o					\
+		$(SRC_DIR)/driver/easrc.o 					\
+		$(SRC_DIR)/driver/edma.o 					\
+		$(SRC_DIR)/driver/esai.o 					\
+		$(SRC_DIR)/driver/i2c.o 					\
+		$(SRC_DIR)/driver/irqstr.o 					\
+		$(SRC_DIR)/driver/sai.o 					\
+		$(SRC_DIR)/driver/sdma.o 					\
+		$(SRC_DIR)/driver/wm8960.o 					\
+		$(SRC_DIR)/driver/micfil.o 					\
+		$(SRC_DIR)/driver/fsl_dma.o 				\
+		$(SRC_DIR)/driver/dsp_irq_handler.o
 
 
 TARGET = hifi4.bin
@@ -156,7 +156,7 @@ all: $(C_OBJS)
 clean:
 	rm -f $(SRC_DIR)/*.o
 	rm -f $(SRC_DIR)/src/*.o
-	rm -f $(SRC_DIR)/src/driver/*.o
+	rm -f $(SRC_DIR)/driver/*.o
 	rm -f $(SRC_DIR)/src/libloader/*.o
 	rm -f $(SRC_DIR)/src/plugins/*.o
 	rm -f $(SRC_DIR)/src/hardware/*.o
