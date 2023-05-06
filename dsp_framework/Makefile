@@ -146,8 +146,8 @@ include tensorflow_lite_micro.inc
 endif
 
 all: $(C_OBJS)
-	$(CPLUS) $(CPLUS_FLAGS) $(C_OBJS) -lxos -lxtutil -o dsp_framework
-	$(OBJCOPY) --xtensa-core=$(XTENSA_CORE) -Ibinary -Obinary dsp_framework $(TARGET)
+	$(CPLUS) $(CPLUS_FLAGS) $(C_OBJS) -lxos -lxtutil -o $(TARGET)
+	$(OBJCOPY) --xtensa-core=$(XTENSA_CORE) -Ibinary -Obinary $(TARGET)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
